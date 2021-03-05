@@ -45,7 +45,7 @@ describe('Compiler Option Test', () => {
                 if (str === './dist/page.san.html') {
                     text = 'maked'
                 } else {
-                    throw new Error('un caught makefile');
+                    throw new Error('uncaught makefile');
                 }
             },
             onDest:({filePath}) => {
