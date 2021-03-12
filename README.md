@@ -15,20 +15,29 @@ npm i makit-recipe-tsc --save-dev
 
 ```
 
-## Get Start
+## Get Started
+
+A [makit](https://github.com/searchfe/makit) recipe for handling TypeScript compilation workflow. 
+
+### Compile
 
 In the following code, ctx is the context of [makit](https://github.com/searchfe/makit).
 
 ```
-const compiler = new CustomCompiler({
+import {Compiler} from 'makit-recipe-tsc';
+
+const compiler = new Compiler({
     baseDir: `${__dirname}/src2`,
-    outDir: `${__dirname}/src2/dist`
+    outDir: `${__dirname}/src2/dist`,
+    configPath: `${__dirname}/src2/tsconfig.json`
 });
 
 await compiler.compile(ctx);
 ```
 
-Add a plugin
+### Add plugins
+
+plugins give users the opportunity to add their own code at specific stages
 
 ```
 
@@ -45,6 +54,8 @@ const plugin: Plugin = {
 }
 
 compiler.addPlugin(plugin);
+
+await compiler.compile(ctx);
 
 ```
 
